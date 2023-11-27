@@ -1,0 +1,18 @@
+to compile this project you must : 
+
+- Have docker installed with the appropriate privileges (sudo chown -R <user> <dotdockerpath>)
+- Install bun.sh and run it in the backend and frontend folders with 'bun install' to install all the modules
+- Add the .env file, env-example is the minimum required, an App id and secret is necessary for 42 and Google Oauth
+- Docker-compose up!
+
+Useful commands : 
+
+build:
+        docker-compose up --build -d
+        docker-compose exec backend npx prisma db push
+        #docker-compose exec backend npx prisma db seed
+        docker-compose logs -f
+
+clean:
+        docker-compose down --rmi all --remove-orphans
+        docker volume rm transcendence_db-data
